@@ -1,0 +1,42 @@
+$primary: #5A4634; // Logód barna színe
+$bg-color: #F3EFE9; // Logód bézs színe
+
+.contact-item {
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+/* Kör alakú ikon tartó: a sötét hátteren világos színnel mutat a legjobban */
+.icon-circle {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background-color: $bg-color; /* Bézs háttér az ikonnak */
+  color: $primary; /* Sötétbarna ikon belül */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.contact-link {
+  color: $bg-color; /* Világos bézs link szín */
+  transition: color 0.3s ease;
+}
+
+/* Lebegő hatás - amikor fölé viszed az egeret */
+.group-hover:hover {
+  transform: translateY(-6px); /* Kicsit felemelkedik a térben */
+
+  .icon-circle {
+    background-color: #ffffff; /* Az ikon háttere teljesen fehérre vált */
+    color: lighten($primary, 10%); /* Az ikon színe picit világosabb lesz */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05); /* Picit megnő a karika */
+  }
+
+  .contact-link {
+    color: #ffffff; /* A szöveg is teljesen fehérre vált */
+  }
+}

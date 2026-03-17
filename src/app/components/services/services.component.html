@@ -1,0 +1,131 @@
+<section id="szolgaltatasok" class="container my-5">
+  <div class="bg-white py-5 px-4 px-lg-5 rounded-5 shadow-sm">
+    
+    <div class="text-center mb-5">
+      <span class="text-primary fw-bold text-uppercase tracking-wider">Márkafüggetlen Szerviz</span>
+      <h2 class="display-6 fw-bold mt-2">Szolgáltatások</h2>
+      <p class="lead text-muted mt-3 mx-auto" style="max-width: 800px;">
+        Munkáimat minden esetben szakszerű javítással és teljes körű garanciával végzem. Nem csupán beállítom, hanem hosszú távra megbízhatóvá teszem nyílászáróit.
+      </p>
+    </div>
+
+    <div class="row g-4 mb-5 justify-content-center">
+      <div class="col-md-4">
+        <div class="service-card text-center h-100 p-4 rounded-4">
+          <div class="icon-circle mx-auto mb-4 shadow-sm">
+            <i class="bi bi-thermometer-half fs-3"></i>
+          </div>
+          <h4 class="fw-bold mb-3">Hőszigetelés javítása</h4>
+          <p class="text-muted">Ne az utcát fűtse! Precíz beállításokkal és tömítéscserével emelem otthona energiahatékonyságát.</p>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="service-card text-center h-100 p-4 rounded-4">
+          <div class="icon-circle mx-auto mb-4 shadow-sm">
+            <i class="bi bi-wrench fs-3"></i>
+          </div>
+          <h4 class="fw-bold mb-3">Akut problémák elhárítása</h4>
+          <p class="text-muted">Szorul, akad, nem bukik vagy nem nyílik? A bosszantó hibákat a lehető leghamarabb, szakszerűen orvosolom.</p>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="service-card text-center h-100 p-4 rounded-4">
+          <div class="icon-circle mx-auto mb-4 shadow-sm">
+            <i class="bi bi-clock-history fs-3"></i>
+          </div>
+          <h4 class="fw-bold mb-3">Hosszú élettartam</h4>
+          <p class="text-muted">Megfelelő karbantartással és teljes körű vasalatcserével megelőzhetjük a méregdrága teljes ablakcseréket.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center pb-3">
+      <button class="btn btn-outline-primary btn-lg rounded-pill fw-bold hover-scale" (click)="openModal()">
+        Speciális szakterületek és Márkák <i class="bi bi-arrow-right-circle ms-2"></i>
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<div class="custom-modal-backdrop" *ngIf="isModalOpen" [class.closing]="isClosing" (click)="closeModal()">
+  <div class="custom-modal-content" [class.closing]="isClosing" (click)="$event.stopPropagation()">
+    
+    <div class="modal-header border-bottom pb-3 mb-4">
+      <div>
+        <span class="text-primary fw-bold text-uppercase tracking-wider small">Részletek</span>
+        <h3 class="fw-bold text-dark mb-0 mt-1">Szakipari Szolgáltatások</h3>
+      </div>
+      <button class="btn-close shadow-none" (click)="closeModal()"></button>
+    </div>
+
+    <div class="modal-body">
+      <div class="row g-5">
+        
+        <div class="col-lg-7">
+          <h5 class="fw-bold mb-4 text-primary d-flex align-items-center">
+            <i class="bi bi-gear-fill me-2 fs-4"></i> Speciális szakterületek
+          </h5>
+          <div class="specialty-list">
+            <div class="specialty-item">
+              <i class="bi bi-check2-circle text-primary"></i>
+              <div>
+                <strong>Emelő-toló (HS) és Toló-bukó (PSK):</strong> Nagyméretű, nehéz szerkezetek mechanikai javítása, sín- és görgőcsere, záródási pontok korrekciója.
+              </div>
+            </div>
+            <div class="specialty-item">
+              <i class="bi bi-check2-circle text-primary"></i>
+              <div>
+                <strong>Alumínium ajtók és portálok:</strong> Ipari és lakossági alumínium szerkezetek szakszerű pántolása, ajtócsukók és zárak szervizelése.
+              </div>
+            </div>
+            <div class="specialty-item">
+              <i class="bi bi-check2-circle text-primary"></i>
+              <div>
+                <strong>Távnyitók és automatika:</strong> Magaslati vagy nehezen hozzáférhető ablakok távnyitó szerkezeteinek telepítése és javítása.
+              </div>
+            </div>
+            <div class="specialty-item">
+              <i class="bi bi-check2-circle text-primary"></i>
+              <div>
+                <strong>Teljes körű vasalatcsere:</strong> Elöregedett, törött vasalatok cseréje modern, biztonsági elemekkel ellátott rendszerekre.
+              </div>
+            </div>
+            <div class="specialty-item">
+              <i class="bi bi-check2-circle text-primary"></i>
+              <div>
+                <strong>Szigetelés és Üvegcsere:</strong> Beázó, szelelő szerkezetek tömítéscseréje, rossz hőszigetelésű üvegek cseréje.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="brands-box p-4 rounded-4 h-100">
+            <h5 class="fw-bold mb-3 text-primary d-flex align-items-center">
+              <i class="bi bi-tags-fill me-2 fs-4"></i> Kiemelt Márkák
+            </h5>
+            <p class="text-muted small mb-4">A legnevesebb európai gyártók alkatrészismeretével és gyári technológiájával dolgozom:</p>
+            
+            <div class="brand-grid">
+              <div class="brand-item"><strong>MACO</strong><span>Osztrák precízió</span></div>
+              <div class="brand-item"><strong>ROTO</strong><span>Német tartósság</span></div>
+              <div class="brand-item"><strong>GU</strong><span>Tolórendszerek</span></div>
+              <div class="brand-item"><strong>SIEGENIA</strong><span>Innovatív zárak</span></div>
+              <div class="brand-item"><strong>WINKHAUS</strong><span>Magas biztonság</span></div>
+              <div class="brand-item"><strong>SCHÜCO</strong><span>Alumínium profilok</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="modal-footer border-top pt-4 mt-4 text-end">
+      <button class="btn btn-primary rounded-pill px-5 fw-bold" (click)="closeModal()">Értem, bezárás</button>
+    </div>
+
+  </div>
+</div>

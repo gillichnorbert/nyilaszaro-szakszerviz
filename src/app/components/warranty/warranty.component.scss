@@ -1,0 +1,124 @@
+$primary: #5A4634; // Logód barna színe
+$bg-color: #F3EFE9; // Logód bézs színe
+
+/* A fő konténer, ami kiemeli a szekciót a háttérből */
+.warranty-container {
+  background-color: #ffffff;
+  border-radius: 30px;
+  padding: 60px 50px;
+  box-shadow: 0 15px 40px rgba(90, 70, 52, 0.05);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(90, 70, 52, 0.05);
+
+  /* Egy finom, dekoratív kör a jobb felső sarokban a háttérben */
+  &::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 250px;
+    height: 250px;
+    background-color: rgba(243, 239, 233, 0.4);
+    border-radius: 50%;
+    z-index: 0;
+  }
+
+  /* A tartalom a háttér elem fölé kerüljön */
+  * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+/* --- LEBEGŐ GARANCIA PECSÉT --- */
+.warranty-badge {
+  width: 260px;
+  height: 260px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, $primary, darken($primary, 10%));
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 20px 40px rgba(90, 70, 52, 0.25);
+  position: relative;
+
+
+  /* Szaggatott belső vonal az eleganciáért */
+  .badge-ring {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+  }
+
+  .badge-icon {
+    font-size: 3.5rem;
+    margin-bottom: 5px;
+    color: $bg-color;
+  }
+
+  .badge-title {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1;
+    margin: 0;
+    letter-spacing: -2px;
+  }
+
+  .badge-subtitle {
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: $bg-color;
+    margin-top: 5px;
+  }
+}
+
+
+/* --- ELŐNYÖK LISTÁJA --- */
+.warranty-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.6;
+
+    i {
+      font-size: 1.6rem;
+      margin-top: -4px; /* Hogy a pipa tökéletesen egy vonalban legyen a szöveggel */
+    }
+  }
+}
+
+/* --- MOBILOS NÉZET (< 768px) --- */
+@media (max-width: 768px) {
+  .warranty-container {
+    padding: 40px 25px;
+    border-radius: 25px;
+  }
+  
+  .warranty-badge {
+    width: 220px;
+    height: 220px;
+    
+    .badge-icon { font-size: 2.8rem; }
+    .badge-title { font-size: 3.2rem; }
+    .badge-subtitle { font-size: 1.1rem; }
+  }
+}

@@ -1,0 +1,98 @@
+$primary: #5A4634; // Logó barna
+$bg-color: #F3EFE9; // Logó bézs
+
+/* Maga a lebegő kártya */
+.process-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 40px 30px;
+  height: 100%;
+  position: relative;
+  overflow: hidden; /* Ne lógjon ki a hatalmas háttérszám */
+  box-shadow: 0 10px 30px rgba(90, 70, 52, 0.05);
+  border: 1px solid rgba(90, 70, 52, 0.05);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  z-index: 2;
+
+  /* Lebegő hatás hoverre */
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(90, 70, 52, 0.15);
+    border-color: rgba(90, 70, 52, 0.2);
+
+    /* Az ikon felveszi a logó színét */
+    .icon-wrapper {
+      transform: scale(1.1);
+      background-color: $primary;
+      i { color: #ffffff !important; }
+    }
+    
+    .step-number-bg {
+      color: rgba(90, 70, 52, 0.08); /* A szám is kicsit sötétebb lesz */
+    }
+  }
+}
+
+/* A hatalmas, halvány szám a háttérben */
+.step-number-bg {
+  position: absolute;
+  top: -15px;
+  right: -10px;
+  font-size: 8rem;
+  font-weight: 900;
+  color: rgba(90, 70, 52, 0.03); /* Nagyon halvány barna */
+  line-height: 1;
+  z-index: -1;
+  transition: color 0.4s ease;
+  user-select: none; /* Ne lehessen kijelölni */
+}
+
+/* Az ikon tartója */
+.icon-wrapper {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  background-color: $bg-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+/* --- ASZTALI NÉZET: Összekötő nyilak --- */
+@media (min-width: 992px) {
+  .process-step {
+    position: relative;
+  }
+
+  /* Nyilat teszünk az 1., 2. és 4. lépés után. A 3. és 5. után NEM teszünk. */
+  .process-step:nth-child(1)::after,
+  .process-step:nth-child(2)::after,
+  .process-step:nth-child(4)::after {
+    content: '\F138'; /* Bootstrap nyíl ikon */
+    font-family: 'bootstrap-icons';
+    position: absolute;
+    right: -20px; /* Pont a két oszlop közé */
+    font-size: 2.5rem;
+    color: rgba(90, 70, 52, 0.15);
+    z-index: 10;
+  }
+  
+  /* 1 -> 2 nyíl (Fentről lefelé dől) */
+  .process-step:nth-child(1)::after {
+    top: 35%;
+    transform: rotate(20deg);
+  }
+  
+  /* 2 -> 3 nyíl (Lentről felfelé dől) */
+  .process-step:nth-child(2)::after {
+    top: 55%;
+    transform: rotate(-20deg);
+  }
+
+  /* 4 -> 5 nyíl (A második sorban szintén fentről lefelé dől) */
+  .process-step:nth-child(4)::after {
+    top: 35%;
+    transform: rotate(20deg);
+  }
+}

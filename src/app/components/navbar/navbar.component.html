@@ -1,0 +1,26 @@
+<header class="custom-header" [class.scrolled]="isScrolled">
+  <div class="nav-container">
+    
+    <a class="brand" href="#" (click)="closeMenu()">
+      <img src="assets/logo.jpg" alt="Nyílászáró Szakszerviz Logó" class="logo-img">
+      <span class="brand-text">Nyílászáró Szakszervíz</span>
+    </a>
+
+    <button class="hamburger-btn" (click)="toggleMenu()" [class.active]="isMenuOpen" aria-label="Menü">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <nav class="nav-menu" [class.open]="isMenuOpen">
+      <ul class="nav-list">
+        <li><a href="#rolam" (click)="closeMenu()">Rólam</a></li>
+        <li><a href="#szolgaltatasok" (click)="closeMenu()">Szolgáltatások</a></li>
+        <li><a href="#galeria" (click)="closeMenu()">Galéria</a></li>
+        <li><a href="#gyik" (click)="closeMenu()">GyIK</a></li>
+        <li><a href="#kapcsolat" class="btn-cta" (click)="closeMenu()">Ajánlatkérés</a></li>
+      </ul>
+    </nav>
+    
+  </div>
+</header>
